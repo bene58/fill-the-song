@@ -35,10 +35,13 @@ function exibirLetraDrag(musica) {
     const lyricsContainer = document.getElementById("lyricsDrag");
     lyricsContainer.innerHTML = "";
 
-    let palavrasDisponiveis = [...musica.palavras];
+    let palavrasDisponiveis = musica.palavras.map(p => p.toLowerCase());
     let letraComEspacos = musica.letra.split(" ").map(palavra => {
-        if (palavrasDisponiveis.includes(palavra.replace(/[{}]/g, ""))) {
-            return `<span class="blank droppable" data-answer="${palavra.replace(/[{}]/g, "")}"
+        // Remove chaves, vírgulas, pontos, interrogações, exclamações e converte para minúsculas
+        let palavraLimpa = palavra.replace(/[{}.,?!]/g, "").toLowerCase();
+
+        if (palavrasDisponiveis.includes(palavraLimpa)) {
+            return `<span class="blank droppable" data-answer="${palavraLimpa}"
                     ondragover="allowDrop(event)" ondrop="dropWord(event)"></span>`;
         }
         return palavra;
