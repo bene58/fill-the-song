@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    margin-bottom: 20px;
+}
+/* Hide by default */
+#screen-drag, #screen-write {
+    display: none;
+}
+.lyrics {
+    margin: 20px auto;
+    font-size: 20px;
+    white-space: pre-line;
+}
+.blank {
+    display: inline-block;
+    width: 100px;
+    border-bottom: 2px solid black;
+    min-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+}
+.blank.droppable {
+    background-color: transparent;
+}
+.words {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.draggable {
+    margin: 5px;
+    padding: 10px;
+    background-color: #1d3561;
+    color: white;
+    display: inline-block;
+    cursor: grab;
+    border-radius: 5px;
+}
+.correct {
+    color: green;
+}
+.incorrect {
+    color: red;
+}
+.btn {
+    background-color: #0c2340;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+.btn:hover {
+    background-color: #061526;
+}
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+.droppable {
+    border: 2px dashed #ccc;
+    padding: 10px;
+}
+.feedback {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.feedback.success {
+    color: green;
+}
+
+.feedback.error {
+    color: red;
+}
