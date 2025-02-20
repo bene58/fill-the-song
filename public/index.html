@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete the Lyrics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Área para mostrar informações da música -->
+        <div id="musica-info" class="info-container"></div>
+
+        <!-- Tela Inicial -->
+        <div id="screen-home">
+            <h1>Complete the Lyrics</h1>
+            <div id="music-list"></div> <!-- Botões das músicas serão inseridos aqui -->
+        </div>
+
+        <!-- Tela de Drag and Drop -->
+        <div id="screen-drag" style="display: none;">
+            <h1>Complete the Lyrics - Drag and Drop</h1>
+            <div id="player-container"></div>
+            <div class="lyrics" id="lyricsDrag"></div>
+            <div id="feedback"></div>
+            <div class="nav-buttons">
+                <button id="open-word-bank" class="btn">Open Word Bank</button>
+                <button class="btn" onclick="goBack()">Back</button>
+                <button class="btn" onclick="checkAnswersDrag()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+          <!-- Sidebar para o Word Bank -->
+        <div id="word-bank-sidebar" class="sidebar">
+          <div class="sidebar-content">
+            <button id="close-word-bank" class="close-btn">&times;</button>
+            <div id="word-bank"></div>
+          </div>
+        </div>
+
+    <!-- Firebase Config -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            authDomain: "fill-the-song.firebaseapp.com",
+            projectId: "fill-the-song",
+            storageBucket: "fill-the-song.firebasestorage.app",
+            messagingSenderId: "597494138856",
+            appId: "1:597494138856:web:029accd51127d1f5ab865d",
+            measurementId: "G-LWCN77NQV5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        window.firebaseDB = db;
+    </script>
+
+    <script src="firebase.js" type="module"></script>
+    <script src="game.js" type="module"></script>
+
+    <script>
+      // Código para abrir e fechar o sidebar do Word Bank
+      document.getElementById("open-word-bank").addEventListener("click", function () {
+        document.getElementById("word-bank-sidebar").classList.add("show");
+      });
+      document.getElementById("close-word-bank").addEventListener("click", function () {
+        document.getElementById("word-bank-sidebar").classList.remove("show");
+      });
+    </script>
+</body>
+</html>

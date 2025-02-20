@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: linear-gradient(135deg, rgba(40, 15, 66, 0.85), rgba(31, 13, 50, 0.85));
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+h1 {
+    margin-bottom: 20px;
+}
+#screen-drag, #screen-write {
+    display: none;
+}
+.lyrics {
+    margin: 20px auto;
+    font-size: 20px;
+    white-space: pre-line;
+}
+.blank {
+    display: inline-block;
+    width: 100px;
+    border-bottom: 2px solid black;
+    min-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+}
+.dropped-word {
+    background-color: #1d3561;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.blank.droppable {
+    background-color: transparent;
+}
+.words {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.draggable {
+    margin: 10px;
+    padding: 10px;
+    background-color: #c1ae36;
+    color: white;
+    display: inline-block;
+    cursor: grab;
+    border-radius: 5px;
+}
+.correct {
+    color: green;
+}
+.incorrect {
+    color: red;
+}
+.btn {
+    background-color: #0c2340;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+.btn:hover {
+    background-color: #061526;
+}
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+.droppable {
+    border: 2px dashed #ccc;
+    padding: 10px;
+}
+.feedback {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.feedback.success {
+    color: green;
+}
+
+.feedback.error {
+    color: red;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; 
+  width: 300px;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(40, 15, 66, 0.85), rgba(31, 13, 50, 0.85));
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+.sidebar.show {
+    right: 0;
+}
+.sidebar-content {
+    padding: 50px;
+    position: relative;
+}
+.close-btn {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
